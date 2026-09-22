@@ -33,7 +33,7 @@ HELLO WORLD
 Converts text to lowercase.
 
 ```bash
-dotnet run --project src/DevTools -- to-lower "IgnoreDuplicateCheckIfOlderThan"
+dotnet run --project src/DevTools -- to-lower "HELLO WORLD"
 ```
 
 Output:
