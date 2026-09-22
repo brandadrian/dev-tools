@@ -55,3 +55,14 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Visual Studio user-specific files
+*.suo
+*.user
+*.DotSettings.user
+
+# Visual Studio cache/options
+.vs/
+
+# JetBrains Rider IDE
+.idea/
