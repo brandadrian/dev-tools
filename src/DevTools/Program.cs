@@ -1,8 +1,10 @@
 using DevTools;
+using DevTools.GitRepositoriesCommand;
 using DevTools.TextTransformCommand;
 using Microsoft.Extensions.DependencyInjection;
 
 var services = new ServiceCollection()
+    .AddGitRepositories()
     .AddTextTransform()
     .AddSingleton<Cli>();
 

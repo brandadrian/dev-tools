@@ -6,6 +6,7 @@ Simple command line application with developer helpers
 - [Features and examples](#features-and-examples)
 	- [to-upper](#to-upper)
 	- [to-lower](#to-lower)
+	- [sync-repos](#sync-repos)
 	- [Help](#help)
 - [Build](#build)
 
@@ -32,13 +33,44 @@ HELLO WORLD
 Converts text to lowercase.
 
 ```bash
-dotnet run --project src/DevTools -- to-lower "Hello WORLD"
+dotnet run --project src/DevTools -- to-lower "IgnoreDuplicateCheckIfOlderThan"
 ```
 
 Output:
 
 ```text
 hello world
+```
+
+### sync-repos
+
+Synchronizes Git repositories defined in a JSON configuration file. Missing repositories are cloned, while existing repositories are checked out to the configured branch and updated with a fast-forward-only pull.
+
+The configuration file can be stored anywhere. Pass its path as the command argument; relative paths are resolved from the repository root when the command is run from there.
+
+Example `repositories.json`:
+
+```json
+{
+	"metadata": {
+		"description": "Repositories used by the development team",
+		"version": "1.0"
+	},
+	"repositories": [
+		{
+			"gitRepositoryUrl": "git@github.com:example/project.git",
+			"name": "project",
+			"branch": "main",
+			"folder": "./repositories"
+		}
+	]
+}
+```
+
+Run the command from the repository root:
+
+```bash
+dotnet run --project src/DevTools -- sync-repos ./repositories.json
 ```
 
 ### Help
