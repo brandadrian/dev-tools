@@ -16,12 +16,6 @@ public class Cli
         }
     }
 
-    public string? Description
-    {
-        get => _rootCommand.Description;
-        set => _rootCommand.Description = value;
-    }
-
     public async Task<int> ExecuteAsync(string[] args, CancellationToken cancellationToken = default)
     {
         var parseResult = _rootCommand.Parse(args);
