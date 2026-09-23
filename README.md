@@ -1,20 +1,21 @@
 # dev-tools
+
 Simple command line application with developer helpers
 
 ## Table of contents
 
 - [Getting started](#getting-started)
-	- [Clone](#clone)
-	- [Build](#build)
-	- [Install as a global tool](#install-as-a-global-tool)
-	- [Uninstall](#uninstall)
+  - [Clone](#clone)
+  - [Build](#build)
+  - [Install as a global tool](#install-as-a-global-tool)
+  - [Uninstall](#uninstall)
 - [Features and examples](#features-and-examples)
-	- [to-upper](#to-upper)
-	- [to-lower](#to-lower)
-	- [base64-encode](#base64-encode)
-	- [base64-decode](#base64-decode)
-	- [sync-repos](#sync-repos)
-	- [Help](#help)
+  - [to-upper](#to-upper)
+  - [to-lower](#to-lower)
+  - [base64-encode](#base64-encode)
+  - [base64-decode](#base64-decode)
+  - [sync-repos](#sync-repos)
+  - [Help](#help)
 
 ## Getting started
 
