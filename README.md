@@ -3,43 +3,94 @@ Simple command line application with developer helpers
 
 ## Table of contents
 
+- [Getting started](#getting-started)
+	- [Clone](#clone)
+	- [Build](#build)
+	- [Install as a global tool](#install-as-a-global-tool)
+	- [Uninstall](#uninstall)
 - [Features and examples](#features-and-examples)
 	- [to-upper](#to-upper)
 	- [to-lower](#to-lower)
+	- [base64-encode](#base64-encode)
+	- [base64-decode](#base64-decode)
 	- [sync-repos](#sync-repos)
 	- [Help](#help)
-- [Build](#build)
+
+## Getting started
+
+### Clone
+
+```bash
+git clone https://github.com/<owner>/dev-tools.git
+cd dev-tools
+```
+
+### Build
+
+From the repository root:
+
+```bash
+dotnet build DevTools.sln
+```
+
+### Install as a global tool
+
+Pack the CLI project into a NuGet package, then install it as a .NET global tool. This makes the `dev-tools` command available from anywhere on your machine.
+
+```bash
+dotnet pack src/DevTools/DevTools.csproj -c Release
+dotnet tool install --add-source ./src/DevTools/bin/Release --global DevTools
+```
+
+Verify the installation:
+
+```bash
+dev-tools --help
+```
+
+To upgrade after pulling new changes, pack again and run `dotnet tool update` instead of `install`:
+
+```bash
+dotnet pack src/DevTools/DevTools.csproj -c Release
+dotnet tool update --add-source ./src/DevTools/bin/Release --global DevTools
+```
+
+### Uninstall
+
+```bash
+dotnet tool uninstall --global DevTools
+```
 
 ## Features and examples
 
 Run these commands from the repository root. Quote text that contains spaces.
 
-### to-upper
+### base64-encode
 
-Converts text to uppercase.
+Encodes text to Base64.
 
 ```bash
-dotnet run --project src/DevTools -- to-upper "Hello world"
+dotnet run --project src/DevTools -- base64-encode "Hello world"
 ```
 
 Output:
 
 ```text
-HELLO WORLD
+SGVsbG8gd29ybGQ=
 ```
 
-### to-lower
+### base64-decode
 
-Converts text to lowercase.
+Decodes Base64 text.
 
 ```bash
-dotnet run --project src/DevTools -- to-lower "HELLO WORLD"
+dotnet run --project src/DevTools -- base64-decode "SGVsbG8gd29ybGQ="
 ```
 
 Output:
 
 ```text
-hello world
+Hello world
 ```
 
 ### sync-repos
@@ -73,6 +124,35 @@ Run the command from the repository root:
 dotnet run --project src/DevTools -- sync-repos ./repositories.json
 ```
 
+### to-upper
+
+Converts text to uppercase.
+
+```bash
+dotnet run --project src/DevTools -- to-upper "Hello world"
+```
+
+Output:
+
+```text
+HELLO WORLD
+```
+
+### to-lower
+
+Converts text to lowercase.
+
+```bash
+dotnet run --project src/DevTools -- to-lower "HELLO WORLD"
+```
+
+Output:
+
+```text
+hello world
+```
+
+
 ### Help
 
 List available commands or show help for a specific command:
@@ -80,12 +160,4 @@ List available commands or show help for a specific command:
 ```bash
 dotnet run --project src/DevTools -- --help
 dotnet run --project src/DevTools -- to-upper --help
-```
-
-## Build
-
-From the repository root:
-
-```bash
-dotnet build src/DevTools.sln
 ```

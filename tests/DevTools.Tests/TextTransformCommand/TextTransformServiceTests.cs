@@ -1,8 +1,7 @@
 using DevTools.TextTransformCommand.Models;
 using DevTools.TextTransformCommand.Services;
-using Xunit;
 
-namespace DevTools.Tests;
+namespace DevTools.Tests.TextTransformCommand;
 
 public class TextTransformServiceTests
 {
