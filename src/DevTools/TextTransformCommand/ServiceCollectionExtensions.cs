@@ -1,6 +1,7 @@
-using System.CommandLine;
+using DevTools.TextTransformCommand.Commands;
 using DevTools.TextTransformCommand.Services;
 using Microsoft.Extensions.DependencyInjection;
+using System.CommandLine;
 
 namespace DevTools.TextTransformCommand;
 
