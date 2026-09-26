@@ -1,6 +1,6 @@
 using System.CommandLine;
 
-namespace DevTools.TextTransformCommand;
+namespace DevTools.TextTransformCommand.Commands;
 
 public class ToUpperCommand : Command
 {
