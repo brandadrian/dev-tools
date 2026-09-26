@@ -1,6 +1,6 @@
 using System.CommandLine;
 
-namespace DevTools.Base64Command;
+namespace DevTools.Base64Command.Commands;
 
 public class Base64DecodeCommand : Command
 {

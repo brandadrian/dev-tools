@@ -1,3 +1,4 @@
+using DevTools.Base64Command.Commands;
 using DevTools.Base64Command.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System.CommandLine;
