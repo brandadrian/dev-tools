@@ -1,0 +1,23 @@
+{
+    // Line endings
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    // Editor settings
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    // C# specific
+    "[csharp]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true
+    },
+    // JSON specific
+    "[json]": {
+        "editor.tabSize": 2
+    },
+    // XML specific
+    "[xml]": {
+        "editor.tabSize": 2
+    }
+}
