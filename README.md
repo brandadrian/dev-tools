@@ -1,5 +1,12 @@
 # dev-tools
 
+[![Build](https://github.com/brandadrian/dev-tools/actions/workflows/build.yml/badge.svg)](https://github.com/brandadrian/dev-tools/actions/workflows/build.yml)
+[![Docs](https://github.com/brandadrian/dev-tools/actions/workflows/docs.yml/badge.svg)](https://github.com/brandadrian/dev-tools/actions/workflows/docs.yml)
+[![Coverage](https://raw.githubusercontent.com/brandadrian/dev-tools/main/badges/coverage.svg)](https://github.com/brandadrian/dev-tools/actions/workflows/build.yml)
+[![Package](https://img.shields.io/badge/package-GitHub%20Packages-blue?logo=github)](https://github.com/brandadrian/dev-tools/pkgs/nuget/DevTools)
+[![License](https://img.shields.io/github/license/brandadrian/dev-tools)](LICENSE)
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4)](global.json)
+
 Simple command line application with developer helpers
 
 ## Table of contents
@@ -25,7 +32,7 @@ Simple command line application with developer helpers
 ### Clone
 
 ```bash
-git clone https://github.com/<owner>/dev-tools.git
+git clone https://github.com/brandadrian/dev-tools.git
 cd dev-tools
 ```
 
@@ -153,18 +160,18 @@ Example `repositories.json`:
 
 ```json
 {
-	"metadata": {
-		"description": "Repositories used by the development team",
-		"version": "1.0"
-	},
-	"repositories": [
-		{
-			"gitRepositoryUrl": "git@github.com:example/project.git",
-			"name": "project",
-			"branch": "main",
-			"folder": "./repositories"
-		}
-	]
+ "metadata": {
+  "description": "Repositories used by the development team",
+  "version": "1.0"
+ },
+ "repositories": [
+  {
+   "gitRepositoryUrl": "git@github.com:example/project.git",
+   "name": "project",
+   "branch": "main",
+   "folder": "./repositories"
+  }
+ ]
 }
 ```
 
@@ -201,7 +208,6 @@ Output:
 ```text
 hello world
 ```
-
 
 ### Help
 
