@@ -1,10 +1,12 @@
 using DevTools;
 using DevTools.Base64Command;
 using DevTools.GitRepositoriesCommand;
+using DevTools.IdGeneratorCommand;
 using DevTools.TextTransformCommand;
 using Microsoft.Extensions.DependencyInjection;
 
 var services = new ServiceCollection()
+    .AddIdGenerator()
     .AddBase64()
     .AddGitRepositories()
     .AddTextTransform()
