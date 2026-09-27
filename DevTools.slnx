@@ -1,5 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
+
 <Solution FileFormatVersion="10.0" MinimumVisualStudioVersion="17.0">
-  <Project Path="src/DevTools/DevTools.csproj" />
-  <Project Path="tests/DevTools.Tests/DevTools.Tests.csproj" />
+  <Folder Name="/.config/">
+    <File Path=".config/dotnet-tools.json" />
+  </Folder>
+  <Folder Name="/.github/">
+    <File Path=".github/CONTRIBUTING.md" />
+    <File Path=".github/SECURITY.md" />
+  </Folder>
+  <Folder Name="/.github/lint/">
+    <File Path=".github/lint/.markdownlint.json" />
+    <File Path=".github/lint/.yamllint.yml" />
+  </Folder>
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/build.yml" />
+    <File Path=".github/workflows/docs.yml" />
+    <File Path=".github/workflows/lint.yml" />
+    <File Path=".github/workflows/release.yml" />
+  </Folder>
+  <Folder Name="/docfx/">
+    <File Path="docfx/docfx.json" />
+    <File Path="docfx/index.md" />
+    <File Path="docfx/toc.yml" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+    <File Path="version.json" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/DevTools/DevTools.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/DevTools.Tests/DevTools.Tests.csproj" />
+  </Folder>
 </Solution>
