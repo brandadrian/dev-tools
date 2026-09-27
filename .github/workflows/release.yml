@@ -25,10 +25,10 @@ jobs:
           dotnet-version: "10.0.x"
 
       - name: Build
-        run: dotnet build DevTools.sln --configuration Release
+        run: dotnet build DevTools.slnx --configuration Release
 
       - name: Test
-        run: dotnet test DevTools.sln --configuration Release --no-build
+        run: dotnet test DevTools.slnx --configuration Release --no-build
 
       - name: Pack
         run: dotnet pack src/DevTools/DevTools.csproj --configuration Release --no-build --output ./nupkg
