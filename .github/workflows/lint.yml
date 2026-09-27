@@ -1,0 +1,38 @@
+name: Lint
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          config: ".github/lint/.markdownlint.json"
+          globs: |
+            **/*.md
+
+  yaml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install yamllint
+        run: pip install yamllint
+
+      - name: Lint YAML
+        run: yamllint -c .github/lint/.yamllint.yml .github/workflows

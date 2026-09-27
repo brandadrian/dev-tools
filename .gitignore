@@ -66,3 +66,11 @@ nunit-*.xml
 
 # JetBrains Rider IDE
 .idea/
+
+# docfx generated output
+docfx/api/
+docfx/_site/
+
+# Test coverage output
+coverage/
+coverage-report/

@@ -1,0 +1,32 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "src": "../src/DevTools",
+          "files": [
+            "**/*.csproj"
+          ]
+        }
+      ],
+      "dest": "api"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "toc.yml",
+          "index.md"
+        ]
+      }
+    ],
+    "output": "_site",
+    "globalMetadata": {
+      "_appName": "DevTools",
+      "_appTitle": "DevTools Documentation",
+      "_enableSearch": true
+    }
+  }
+}
