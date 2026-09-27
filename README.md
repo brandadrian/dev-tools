@@ -17,6 +17,7 @@ Simple command line application with developer helpers
   - [Install as a global tool](#install-as-a-global-tool)
   - [Uninstall](#uninstall)
 - [Features and examples](#features-and-examples)
+  - [env-check](#env-check)
   - [uuid-v4](#uuid-v4)
   - [uuid-v7](#uuid-v7)
   - [snowflake](#snowflake)
@@ -41,7 +42,7 @@ cd dev-tools
 From the repository root:
 
 ```bash
-dotnet build DevTools.sln
+dotnet build DevTools.slnx
 ```
 
 ### Install as a global tool
@@ -50,8 +51,10 @@ Pack the CLI project into a NuGet package, then install it as a .NET global tool
 
 ```bash
 dotnet pack src/DevTools/DevTools.csproj -c Release
-dotnet tool install --add-source ./src/DevTools/bin/Release --global DevTools
+dotnet tool install --add-source ./src/DevTools/bin/Release --global DevTools --prerelease
 ```
+
+> **Note:** The `--prerelease` flag is required because this project uses [Nerdbank.GitVersioning](https://github.com/dotnet/Nerdbank.GitVersioning) which automatically generates pre-release version numbers (e.g., `1.0.3-g4271ebd321`) based on git history. Without this flag, `dotnet tool install` will not find the package.
 
 Verify the installation:
 
@@ -63,8 +66,10 @@ To upgrade after pulling new changes, pack again and run `dotnet tool update` in
 
 ```bash
 dotnet pack src/DevTools/DevTools.csproj -c Release
-dotnet tool update --add-source ./src/DevTools/bin/Release --global DevTools
+dotnet tool update --add-source ./src/DevTools/bin/Release --global DevTools --prerelease
 ```
+
+The `--prerelease` flag is required for the same reason mentioned above.
 
 ### Uninstall
 
@@ -75,6 +80,44 @@ dotnet tool uninstall --global DevTools
 ## Features and examples
 
 Run these commands from the repository root. Quote text that contains spaces.
+
+### env-check
+
+Checks installed development tools and displays their versions across multiple categories. Useful for verifying your development environment.
+
+**Supported Tool Categories:**
+
+- **Version Control:** Git
+- **Core Development:** .NET, Java, Python, Node.js, npm, Ruby, PHP
+- **Frontend:** TypeScript, Yarn, React CLI, Angular CLI, Vue CLI
+- **Backend:** Go, Rust, Gradle, Maven
+- **DevOps & Container:** Docker, Podman, Docker Compose
+- **Kubernetes & Orchestration:** Kubernetes (kubectl), Kubectx, Helm, Kustomize, Skaffold, Kind, Minikube
+- **Cloud & Infrastructure:** Terraform, AWS CLI, Azure CLI, GCloud CLI
+- **Database:** PostgreSQL, MySQL, MongoDB, Redis, SQLite
+
+```bash
+dev-tools env-check
+```
+
+Output:
+
+```text
+✓ Installed Tools:
+  .NET            -> 10.0.401
+  Docker          -> Docker version 27.4.0, build bde2b89
+  Git             -> git version 2.55.0.windows.5
+  Java            -> openjdk version "21.0.9" 2025-10-21 LTS
+  Kubernetes      -> Client Version: v1.28.0
+  Node.js         -> v26.9.0
+  Python          -> Python 3.13.2
+
+✗ Missing Tools:
+  npm             -> Not found
+  Rust            -> Not found
+
+Summary: 6/8 tools installed
+```
 
 ### uuid-v4
 
