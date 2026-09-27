@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Solution FileFormatVersion="10.0" MinimumVisualStudioVersion="17.0">
+  <Project Path="src/DevTools/DevTools.csproj" />
+  <Project Path="tests/DevTools.Tests/DevTools.Tests.csproj" />
+</Solution>
