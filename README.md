@@ -203,18 +203,18 @@ Example `repositories.json`:
 
 ```json
 {
- "metadata": {
-  "description": "Repositories used by the development team",
-  "version": "1.0"
- },
- "repositories": [
-  {
-   "gitRepositoryUrl": "git@github.com:example/project.git",
-   "name": "project",
-   "branch": "main",
-   "folder": "./repositories"
-  }
- ]
+  "metadata": {
+    "description": "Repositories used by the development team",
+    "version": "1.0"
+  },
+  "repositories": [
+    {
+      "gitRepositoryUrl": "git@github.com:example/project.git",
+      "name": "project",
+      "branch": "main",
+      "folder": "./repositories"
+    }
+  ]
 }
 ```
 
