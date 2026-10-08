@@ -13,12 +13,19 @@ public class SyncRepositoriesCommand : Command
             Description = "Path to the JSON file that defines repositories."
         };
 
+        var baseDirectoryOption = new Option<string?>("--base-directory")
+        {
+            Description = "Base directory for relative repository folders. Defaults to the current directory."
+        };
+
         Add(configPathArgument);
+        Add(baseDirectoryOption);
 
         SetAction(async (parseResult, cancellationToken) =>
         {
             var configPath = parseResult.GetValue(configPathArgument);
-            return await processor.SyncAsync(configPath!, cancellationToken) ? 0 : 1;
+            var baseDirectory = parseResult.GetValue(baseDirectoryOption);
+            return await processor.SyncAsync(configPath!, baseDirectory, cancellationToken) ? 0 : 1;
         });
     }
 }

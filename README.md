@@ -197,24 +197,24 @@ Hello world
 
 Synchronizes Git repositories defined in a JSON configuration file. Missing repositories are cloned, while existing repositories are checked out to the configured branch and updated with a fast-forward-only pull.
 
-The configuration file can be stored anywhere. Pass its path as the command argument; relative paths are resolved from the repository root when the command is run from there.
+The configuration file can be stored anywhere. Pass its path as the command argument. Relative repository folders are resolved from the current directory by default, or from the directory supplied with `--base-directory`.
 
 Example `repositories.json`:
 
 ```json
 {
- "metadata": {
-  "description": "Repositories used by the development team",
-  "version": "1.0"
- },
- "repositories": [
-  {
-   "gitRepositoryUrl": "git@github.com:example/project.git",
-   "name": "project",
-   "branch": "main",
-   "folder": "./repositories"
-  }
- ]
+  "metadata": {
+    "description": "Repositories used by the development team",
+    "version": "1.0"
+  },
+  "repositories": [
+    {
+      "gitRepositoryUrl": "git@github.com:example/project.git",
+      "name": "project",
+      "branch": "main",
+      "folder": "./repositories"
+    }
+  ]
 }
 ```
 
@@ -222,6 +222,12 @@ Run the command from the repository root:
 
 ```bash
 dotnet run --project src/DevTools -- sync-repos ./repositories.json
+```
+
+To sync the DOK repositories under `/Users/me/source/myrepos`, use:
+
+```bash
+dotnet run --project /Users/me/dev-tools/src/DevTools -- sync-repos /Users/me/repositories-dok.json --base-directory /Users/me/source/myrepos
 ```
 
 ### to-upper
