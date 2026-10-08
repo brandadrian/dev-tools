@@ -13,9 +13,10 @@ public class GitRepositoriesCommandProcessor
         _gitRepositorySyncService = gitRepositorySyncService;
     }
 
-    public async Task<bool> SyncAsync(string configPath, CancellationToken cancellationToken)
+    public async Task<bool> SyncAsync(string configPath, string? baseDirectory, CancellationToken cancellationToken)
     {
         var fullPath = Path.GetFullPath(configPath);
+        var fullBaseDirectory = Path.GetFullPath(baseDirectory ?? Environment.CurrentDirectory);
 
         if (!File.Exists(fullPath))
         {
@@ -37,7 +38,15 @@ public class GitRepositoriesCommandProcessor
 
         try
         {
-            await _gitRepositorySyncService.SyncAsync(config.Repositories, cancellationToken);
+            var repositories = config.Repositories.Select(repository => new GitRepositoryDefinition
+            {
+                GitRepositoryUrl = repository.GitRepositoryUrl,
+                Name = repository.Name,
+                Branch = repository.Branch,
+                Folder = Path.GetFullPath(repository.Folder, fullBaseDirectory)
+            }).ToArray();
+
+            await _gitRepositorySyncService.SyncAsync(repositories, cancellationToken);
             Console.WriteLine($"Processed {config.Repositories.Count} repositories.");
             return true;
         }
