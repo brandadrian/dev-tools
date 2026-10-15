@@ -1,7 +1,6 @@
 using System.CommandLine;
-using DevTools.GitRepositoriesCommand.Services;
 
-namespace DevTools.GitRepositoriesCommand;
+namespace DevTools.GitRepositoriesCommand.commands;
 
 public class SyncRepositoriesCommand : Command
 {

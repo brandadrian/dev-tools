@@ -24,6 +24,7 @@ Simple command line application with developer helpers
   - [base64-encode](#base64-encode)
   - [base64-decode](#base64-decode)
   - [sync-repos](#sync-repos)
+  - [sync-main-branches](#sync-main-branches)
   - [to-upper](#to-upper)
   - [to-lower](#to-lower)
   - [Help](#help)
@@ -228,6 +229,39 @@ To sync the DOK repositories under `/Users/me/source/myrepos`, use:
 
 ```bash
 dotnet run --project /Users/me/dev-tools/src/DevTools -- sync-repos /Users/me/repositories-dok.json --base-directory /Users/me/source/myrepos
+```
+
+### sync-main-branches
+
+Recursively finds Git repositories and synchronizes them with the latest changes from the main or master branch. For repositories already on main/master, it performs a direct pull. For repositories on feature branches, it stashes any uncommitted changes, switches to main/master, pulls the latest updates, and then restores the original branch state.
+
+Run the command from any directory:
+
+```bash
+dev-tools sync-main-branches
+dev-tools sync-main-branches "C:\path\to\repositories"
+```
+
+Output:
+
+```text
+********************************************************************************
+Searching for Git repositories in: C:\path\to\repositories
+********************************************************************************
+
+[PROCESSING] Repository: C:\path\to\repositories\project1
+[PROCESSING] Repository: C:\path\to\repositories\project2
+
+********************************************************************************
+Summary:
+********************************************************************************
+Total repositories found:       2
+Successfully updated:           2
+Failed:                         0
+
+✓ Updated repositories:
+  - C:\path\to\repositories\project1 (main)
+  - C:\path\to\repositories\project2 (master)
 ```
 
 ### to-upper
