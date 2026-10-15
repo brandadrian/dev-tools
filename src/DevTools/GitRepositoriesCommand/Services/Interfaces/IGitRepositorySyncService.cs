@@ -1,6 +1,6 @@
-namespace DevTools.GitRepositoriesCommand.Services;
+namespace DevTools.GitRepositoriesCommand.Services.Interfaces;
 
-using DevTools.GitRepositoriesCommand.Models;
+using Models;
 
 public interface IGitRepositorySyncService
 {

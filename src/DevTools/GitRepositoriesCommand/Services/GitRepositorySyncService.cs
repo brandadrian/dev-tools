@@ -2,6 +2,7 @@ namespace DevTools.GitRepositoriesCommand.Services;
 
 using System.Diagnostics;
 using DevTools.GitRepositoriesCommand.Models;
+using DevTools.GitRepositoriesCommand.Services.Interfaces;
 
 public class GitRepositorySyncService : IGitRepositorySyncService
 {
